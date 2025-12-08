@@ -3,7 +3,6 @@ package org.me.supaserver;
 import org.me.supacommonapi.GameState;
 import org.me.supacommonapi.Move;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,8 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class GameController {
     @Autowired
     private GameSessionManager gameSessionManager;
-    @Value("${server.access-key}")
-    private String accessKey;
+    private String accessKey = "300305";
 
     @PostMapping("/start")
     public String startSession(@RequestHeader("X-Server-Access") String key) {
