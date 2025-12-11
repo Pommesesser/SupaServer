@@ -27,7 +27,7 @@ public class GameHttpClient {
                     String.class);
         } catch (HttpStatusCodeException e) {
             System.out.println("Error " + e.getStatusCode().value() + " - " + e.getResponseBodyAsString());
-            throw new RuntimeException();
+            throw e;
         }
 
         return response.getBody();
@@ -46,7 +46,7 @@ public class GameHttpClient {
                     String.class);
         } catch (HttpStatusCodeException e) {
             System.out.println("Error " + e.getStatusCode().value() + " - " + e.getResponseBodyAsString());
-            throw new RuntimeException();
+            throw e;
         }
 
         return response.getBody();
@@ -66,7 +66,7 @@ public class GameHttpClient {
                     GameState.class);
         } catch (HttpStatusCodeException e) {
             System.out.println("Error " + e.getStatusCode().value() + " - " + e.getResponseBodyAsString());
-            throw new RuntimeException();
+            throw e;
         }
 
         return response.getBody();
@@ -84,7 +84,7 @@ public class GameHttpClient {
                     Void.class);
         } catch (HttpStatusCodeException e) {
             System.out.println("Error " + e.getStatusCode().value() + " - " + e.getResponseBodyAsString());
-            throw new RuntimeException();
+            throw e;
         }
     }
 
@@ -102,7 +102,7 @@ public class GameHttpClient {
                     Integer.class);
         } catch (HttpStatusCodeException e) {
             System.out.println("Error " + e.getStatusCode().value() + " - " + e.getResponseBodyAsString());
-            throw new RuntimeException();
+            throw e;
         }
 
         return response.getBody();

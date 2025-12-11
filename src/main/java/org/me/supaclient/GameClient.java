@@ -120,7 +120,7 @@ private void runGame(String jwt, String gameId) throws InterruptedException {
         }
     }
 
-    if (finalGameStateWinner)
+    if (!finalGameStateWinner)
         System.out.println("Draw");
     else if (finalGameStatePlayer == playerNumber)
         System.out.println("You win");
