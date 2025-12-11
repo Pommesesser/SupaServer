@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class GameSessionManager {
@@ -23,6 +24,7 @@ public class GameSessionManager {
         String gameId = UUID.randomUUID().toString();
         GameSession initialGameSession = new GameSession(0, GameState.newGame(), System.currentTimeMillis());
         redisTemplate.opsForValue().set(gameId, initialGameSession);
+        redisTemplate.expire(gameId, 30, TimeUnit.MINUTES);
         return gameId;
     }
 
